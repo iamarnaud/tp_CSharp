@@ -12,15 +12,13 @@ namespace Helloworld
         static void Main(string[] args)
         {
             WriteLine("Type 'exit' to quit program");
-            do 
+            do // le programme gère l'affichage des messages
             {
                 // Instanciation de la classe Message
                 Message message = new Message();
                 WriteLine(message.GetHelloMessage() + Environment.UserName);
             } while (ReadLine() != "exit");
         }
-
-
     }
 }
 
