@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace Helloworld
 {
@@ -10,11 +11,16 @@ namespace Helloworld
     {
         static void Main(string[] args)
         {
-             
-        // Instanciation de la classe Message
-        Message message = new Message();
-            message.GetHelloMessage();
+            WriteLine("Type 'exit' to quit program");
+            do 
+            {
+                // Instanciation de la classe Message
+                Message message = new Message();
+                WriteLine(message.GetHelloMessage() + Environment.UserName);
+            } while (ReadLine() != "exit");
         }
+
+
     }
 }
 

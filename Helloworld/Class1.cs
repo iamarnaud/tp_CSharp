@@ -28,73 +28,42 @@ namespace Helloworld
             evening = 18;
         }
 
-        public void GetHelloMessage()
+        public string GetHelloMessage()
         {
-            do
-            {
-                if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday || DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
+            
+            
+                if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday
+                    || DateTime.Now.DayOfWeek == DayOfWeek.Sunday
+                    || DateTime.Now.DayOfWeek == DayOfWeek.Friday && DateTime.Now.Hour > evening // C'est le vendredi soir
+                    || DateTime.Now.DayOfWeek == DayOfWeek.Monday && DateTime.Now.Hour < morning) //C'est le lundi matin
                 {
                     // C'est le weekend
-                    AfficherBonWeekEnd();
+                    return "Bon week-end ";
                 }
-                // C'est le vendredi soir
 
-                else if (DateTime.Now.DayOfWeek == DayOfWeek.Friday && DateTime.Now.Hour > evening)
+                // C'est la semaine
+                else if (DateTime.Now.Hour >= morning && DateTime.Now.Hour < afternoon)
                 {
-                    // C'est le weekend
-                    AfficherBonWeekEnd();
+                    // C'est le matin
+                    return "Bonjour "
+                     ;
                 }
-
+                else if (DateTime.Now.Hour >= afternoon && DateTime.Now.Hour < evening)
+                {
+                    // C'est l'après midi
+                    return "Bon après-midi ";
+                }
                 else
-
                 {
-                    if (DateTime.Now.DayOfWeek == DayOfWeek.Monday && DateTime.Now.Hour < morning)
-                    {
-                        //C'est le lundi matin
-                        AfficherBonWeekEnd();
-                    }
-
-                    // C'est la semaine
-                    else if (DateTime.Now.Hour >= morning && DateTime.Now.Hour < afternoon)
-                    {
-                        // C'est le matin
-                        AfficherBonjour();
-                    }
-                    else if (DateTime.Now.Hour >= afternoon && DateTime.Now.Hour < evening)
-                    {
-                        // C'est l'après midi
-                        AfficherBonApresmidi();
-                    }
-                    else if (DateTime.Now.Hour >= evening)
-                    {
-                        // C'est le soir
-                        AfficherBonsoir();
-                    }
+                    // C'est le soir
+                    return "Bonsoir "; ;
                 }
+
                 ReadKey();
                 // Console.ReadKey(); si on n'indique pas using static System.Console; en haut de page
-            } while (ReadLine() != "exit");
+
+            
         }
 
-        public void AfficherBonWeekEnd()
-        {
-            WriteLine("Bon week-end " + Environment.UserName);
-        }
-
-        public void AfficherBonjour()
-        {
-            WriteLine("Bonjour " + Environment.UserName);
-        }
-
-        public void AfficherBonApresmidi()
-        {
-            WriteLine("Bon après-midi " + Environment.UserName);
-        }
-
-        public void AfficherBonsoir()
-        {
-            WriteLine("Bonsoir " + Environment.UserName);
-            // Console.WriteLine("Bonsoir " + Environment.UserName);
-        }
     }
 }
