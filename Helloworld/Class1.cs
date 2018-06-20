@@ -11,11 +11,9 @@ namespace Helloworld
     public class Message // la classe gere la gestion de l'affichage
 
     {
-        /* Création d'une instance avec date fixe pour tester fonctionnement de la fonction GetHelloMessage 
-         * Pour retester remplacer DateTime.Now par test 
-         * DateTime test = new DateTime(2018, 06, 15, 17, 0, 0);
-         */
-        DateTime date = DateTime.Now;//DateTime(2018, 06, 15, 17, 0, 0);
+        // Création d'une instance avec date fixe pour tester fonctionnement de la fonction GetHelloMessage 
+        
+        DateTime date = DateTime.Now; //DateTime(2018, 06, 15, 17, 0, 0);
         private int morning;
         private int afternoon;
         private int evening;
